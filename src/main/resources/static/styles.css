@@ -1,0 +1,14 @@
+body {
+    background-color: #aaa;
+    color: #fff;
+}
+
+nav {
+    background-color: #f00;
+    padding: 10px;
+}
+
+table, tr, th, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}

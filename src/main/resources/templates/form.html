@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsere erste Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="basic.js"></script>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/service">Service</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+</nav>
+
+<hr>
+
+<h1 th:text="${headline}"></h1>
+
+<form action="/service/save" method="post">
+
+    <div>
+        <label for="name">Name</label><br>
+        <input type="text" name="name" id="name">
+    </div>
+
+    <div>
+        <label for="email">E-Mail</label><br>
+        <input type="text" name="email" id="email">
+    </div>
+
+    <div>
+        <label for="text">Anfrage</label><br>
+        <textarea name="text" id="text" rows="10"></textarea>
+    </div>
+
+    <button type="submit">Absenden</button>
+
+</form>
+
+<hr>
+
+<table th:if="#{anfragen.size() > 0}">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>E-Mail</th>
+            <th>Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="a : ${anfragen}"><!-- for-schleife -->
+            <td th:text="${a.kundenName}"></td><!-- Namen der Eigenschaften bzw. des Getters -->
+            <td th:text="${a.email}"></td>
+            <td th:text="${a.text}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
